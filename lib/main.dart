@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'dashboard.dart';
 import 'p1.dart';
 
 void main() {
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int? isLogin = pref.getInt("is_login");
   if(isLogin == 1){
     Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => P1(title: "Halo Push",)),
+        MaterialPageRoute(builder: (context) => Dashboard(title: "Dashboard",)),
     );
   }
   }
@@ -94,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 SharedPreferences pref = await SharedPreferences.getInstance();
                 await pref.setInt("is_login", 1);
                 Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => P1(title: "Halo Push",)),
+                  MaterialPageRoute(builder: (context) => Dashboard(title: "Halo Push",)),
                 );
               },
               child: Text(
